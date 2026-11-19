@@ -142,13 +142,21 @@ database/             # 8 migration domain, seeder data demo
 lang/                 # id.json, id/*, en/* (dwibahasa)
 resources/views/      # Blade + Tailwind (publik, admin)
 tests/                # Feature & Unit
-docs/                 # INSTALL.md, CASE_STUDY.md, screenshots/
+docs/                 # 01–04 dokumen analisis, CASE_STUDY.md, INSTALL.md, screenshots/
 ```
 
 ## 📚 Dokumentasi
 
-- **[Studi kasus portofolio](docs/CASE_STUDY.md)**: masalah, peran, proses analisis, solusi, hasil, dan pelajaran
-- **[Panduan instalasi & deployment](docs/INSTALL.md)**
+Dokumen analisis sistem (semua diagram langsung tampil di GitHub):
+
+| # | Dokumen | Isi |
+|---|---|---|
+| 01 | [SRS](docs/01-srs.md) | 35 kebutuhan fungsional, 14 non-fungsional, 20 aturan bisnis |
+| 02 | [Pemodelan proses & sistem](docs/02-pemodelan.md) | BPMN as-is/to-be, use case + skenario, activity, state, sequence, class diagram |
+| 03 | [Basis data](docs/03-basis-data.md) | ERD, kamus data, logika anti-overbooking |
+| 04 | [Wireframe](docs/04-wireframe.md) | Peta situs, 18 wireframe, panduan antarmuka |
+
+Lainnya: **[Studi kasus portofolio](docs/CASE_STUDY.md)** · **[Instalasi & deployment](docs/INSTALL.md)**
 
 ## ⚠️ Batasan
 
@@ -211,8 +219,8 @@ See the commands above or **[docs/INSTALL.md](docs/INSTALL.md)**. Demo accounts 
 
 ### Documentation
 
-- **[Portfolio case study](docs/CASE_STUDY.md)** (Indonesian and English)
-- **[Installation & deployment guide](docs/INSTALL.md)**
+- System analysis documents: **[SRS](docs/01-srs.md)**, **[process & system models](docs/02-pemodelan.md)**, **[database design](docs/03-basis-data.md)**, **[wireframes](docs/04-wireframe.md)**. Each has an English section.
+- **[Portfolio case study](docs/CASE_STUDY.md)** · **[Installation & deployment guide](docs/INSTALL.md)**
 
 ### Limitations
 
