@@ -15,6 +15,9 @@ class RoomNight extends Model
 {
     public $timestamps = false;
 
+    /** Simpan stay_date murni Y-m-d agar perbandingan rentang tanggal konsisten di MySQL maupun SQLite. */
+    protected $dateFormat = 'Y-m-d';
+
     protected $fillable = ['reservation_room_id', 'room_id', 'stay_date'];
 
     protected function casts(): array

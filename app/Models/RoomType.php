@@ -33,11 +33,6 @@ class RoomType extends Model
         ];
     }
 
-    public function getRouteKeyName(): string
-    {
-        return 'slug';
-    }
-
     public function branch(): BelongsTo
     {
         return $this->belongsTo(Branch::class);

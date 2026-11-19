@@ -16,3 +16,17 @@ php artisan serve
 ```
 
 Akun demo (kata sandi `password`): `admin@nusastay.test` (admin) · `budi@contoh.test` (pelanggan).
+
+Proses latar belakang (jalankan di terminal terpisah):
+
+```bash
+php artisan schedule:work   # kedaluwarsa otomatis reservasi yang tidak dibayar (setiap 5 menit)
+php artisan queue:work      # pengiriman email notifikasi
+```
+
+## Pengujian
+
+```bash
+php artisan test                                  # 68 test (SQLite in-memory)
+php artisan hotel:concurrency-test --workers=20   # uji konkurensi anti-overbooking (butuh MySQL/MariaDB + pcntl)
+```

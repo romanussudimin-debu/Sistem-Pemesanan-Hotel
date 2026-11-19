@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Foundation\Inspiring;
-use Illuminate\Support\Facades\Artisan;
+// routes/console.php
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote');
+use Illuminate\Support\Facades\Schedule;
+
+// FR-16 / NFR-12: jalankan `php artisan schedule:work` (lokal) atau cron `* * * * * php artisan schedule:run` (server)
+Schedule::command('reservations:expire')->everyFiveMinutes()->withoutOverlapping();

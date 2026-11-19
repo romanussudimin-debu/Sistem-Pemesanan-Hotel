@@ -7,13 +7,14 @@ namespace App\Models;
 use App\Enums\UserRole;
 use Database\Factories\UserFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Translation\HasLocalePreference;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable implements MustVerifyEmail // FR-01: verifikasi email
+class User extends Authenticatable implements HasLocalePreference, MustVerifyEmail // FR-01: verifikasi email
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
@@ -40,6 +41,12 @@ class User extends Authenticatable implements MustVerifyEmail // FR-01: verifika
     public function isAdmin(): bool
     {
         return $this->role === UserRole::Admin;
+    }
+
+    /** Bahasa email notifikasi mengikuti pilihan pengguna (FR-05). */
+    public function preferredLocale(): string
+    {
+        return $this->locale ?? config('app.locale');
     }
 
     public function reservations(): HasMany

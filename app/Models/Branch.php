@@ -27,11 +27,6 @@ class Branch extends Model
         return ['is_active' => 'boolean'];
     }
 
-    public function getRouteKeyName(): string
-    {
-        return 'slug';
-    }
-
     public function roomTypes(): HasMany
     {
         return $this->hasMany(RoomType::class);
