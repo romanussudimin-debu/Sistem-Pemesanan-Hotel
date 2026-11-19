@@ -1,0 +1,25 @@
+{
+    // .devcontainer/devcontainer.json — konfigurasi GitHub Codespaces (dan VS Code Dev Containers)
+    "name": "Nusa Stay Hotels (Laravel 13 · PHP 8.3)",
+    "image": "mcr.microsoft.com/devcontainers/php:1-8.3-bookworm",
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": { "version": "22" }
+    },
+    "forwardPorts": [8000],
+    "portsAttributes": {
+        "8000": { "label": "Nusa Stay Hotels", "onAutoForward": "openBrowser" }
+    },
+    // Sekali saat Codespace dibuat: pasang dependensi, siapkan .env (SQLite), isi data demo
+    "postCreateCommand": "bash .devcontainer/setup.sh",
+    // Setiap kali Codespace dibuka: jalankan server aplikasi
+    "postAttachCommand": "php artisan serve --host=0.0.0.0 --port=8000",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "bmewburn.vscode-intelephense-client",
+                "bradlc.vscode-tailwindcss",
+                "bierner.markdown-mermaid"
+            ]
+        }
+    }
+}

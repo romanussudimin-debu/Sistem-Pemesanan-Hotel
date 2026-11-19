@@ -65,6 +65,12 @@ return [
     |
     */
 
+    /*
+    | Proxy tepercaya (mis. GitHub Codespaces, load balancer). Isi "*" atau daftar IP dipisah koma.
+    | Diterapkan di AppServiceProvider agar URL https dibuat dengan benar di balik reverse proxy.
+    */
+    'trusted_proxies' => env('TRUSTED_PROXIES'),
+
     'timezone' => env('APP_TIMEZONE', 'Asia/Makassar'),
 
     /*

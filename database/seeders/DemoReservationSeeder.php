@@ -362,24 +362,11 @@ class DemoReservationSeeder extends Seeder
         return $prefix.str_pad((string) $this->sequence[$prefix], 4, '0', STR_PAD_LEFT);
     }
 
-    /** Gambar bukti transfer tiruan di storage privat agar halaman verifikasi admin bisa menampilkannya. */
+    /** Menyalin gambar bukti transfer tiruan ke storage privat agar halaman verifikasi admin bisa menampilkannya. */
     private function storeDemoProof(): void
     {
-        if (Storage::disk('local')->exists(self::DEMO_PROOF) || ! function_exists('imagecreatetruecolor')) {
-            return;
+        if (! Storage::disk('local')->exists(self::DEMO_PROOF)) {
+            Storage::disk('local')->put(self::DEMO_PROOF, file_get_contents(__DIR__.'/assets/demo-bukti-transfer.png'));
         }
-
-        $img = imagecreatetruecolor(480, 300);
-        imagefill($img, 0, 0, imagecolorallocate($img, 241, 245, 249));
-        $dark = imagecolorallocate($img, 15, 118, 110);
-        imagestring($img, 5, 24, 24, 'BUKTI TRANSFER (CONTOH / DEMO)', $dark);
-        imagestring($img, 4, 24, 80, 'Bank XYZ (contoh) -> Bank ABC (contoh)', $dark);
-        imagestring($img, 4, 24, 110, 'Status: BERHASIL', $dark);
-        imagestring($img, 3, 24, 260, 'Gambar ini dibuat otomatis oleh seeder.', $dark);
-
-        ob_start();
-        imagepng($img);
-        Storage::disk('local')->put(self::DEMO_PROOF, ob_get_clean());
-        imagedestroy($img);
     }
 }

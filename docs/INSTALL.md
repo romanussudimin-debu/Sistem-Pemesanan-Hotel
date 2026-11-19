@@ -2,6 +2,24 @@
 
 > 🇬🇧 English version below.
 
+## 0. Cara tercepat: GitHub Codespaces (tanpa instalasi)
+
+Codespaces menjalankan aplikasi di server GitHub dan menampilkannya di browser. Akun GitHub pribadi mendapat kuota gratis bulanan (±60 jam untuk mesin 2-core).
+
+1. Buka https://github.com/romanussudimin-debu/Sistem-Pemesanan-Hotel, klik tombol hijau **Code** → tab **Codespaces** → **Create codespace on main**. Bisa juga langsung lewat tombol **Open in GitHub Codespaces** di README.
+2. Tunggu ±3–5 menit. Skrip [`.devcontainer/setup.sh`](../.devcontainer/setup.sh) otomatis memasang PHP 8.3, Node.js, dan dependensi, menyiapkan `.env` (SQLite), lalu mengisi data demo. Selesai bila terminal menampilkan **"✅ Siap!"**.
+3. Aplikasi otomatis berjalan di port **8000** dan terbuka di tab baru. Bila tidak terbuka, buka tab **PORTS** di bagian bawah, cari port 8000, lalu klik ikon 🌐 (*Open in Browser*).
+4. Masuk dengan `admin@nusastay.test` atau `budi@contoh.test` (kata sandi `password`).
+
+**Membuka lagi di lain waktu:** github.com → foto profil → **Your codespaces**, lalu pilih codespace ini. Server aplikasi otomatis berjalan lagi. Bila tidak, ketik `php artisan serve --host=0.0.0.0 --port=8000` di terminal.
+
+**Hemat kuota:** codespace berhenti sendiri setelah 30 menit tidak dipakai. Hapus codespace yang sudah tidak diperlukan di halaman *Your codespaces*.
+
+**Catatan teknis:**
+- Codespaces berjalan di balik proxy HTTPS GitHub. Karena itu skrip mengisi `TRUSTED_PROXIES=*` dan `APP_URL` dengan alamat publik codespace, supaya tautan dan aset memakai https.
+- Email tidak benar-benar terkirim, melainkan ditulis ke `storage/logs/laravel.log`.
+- Uji konkurensi butuh MySQL, jadi tidak dijalankan di Codespaces. Uji ini tetap berjalan di GitHub Actions.
+
 ## 1. Kebutuhan
 
 | Perangkat lunak | Versi |
@@ -124,6 +142,8 @@ Jalankan `php artisan queue:work --tries=3` sebagai layanan systemd atau Supervi
 ## 🇬🇧 English
 
 **Requirements:** PHP 8.3+ (`pdo_mysql`, `mbstring`, `gd`, `fileinfo`; `pcntl` optional), Composer 2, Node.js 20+, MySQL 8.0+ or MariaDB 10.6+.
+
+**Fastest: GitHub Codespaces.** Click *Code → Codespaces → Create codespace on main* (or the README badge) and wait about 3–5 minutes. `.devcontainer/setup.sh` installs PHP 8.3, Node.js, and dependencies, configures SQLite, and seeds demo data. The app then runs on port 8000 (open it from the **PORTS** tab).
 
 **Local install:** clone the repo, run `composer install`, `npm install && npm run build`, `cp .env.example .env`, `php artisan key:generate`, create a `nusa_stay` database and set `DB_*` in `.env`, then `php artisan migrate --seed`, `php artisan storage:link`, and `php artisan serve`. Run `php artisan schedule:work` (auto-expiry every 5 minutes) and `php artisan queue:work` (emails) in separate terminals, or set `QUEUE_CONNECTION=sync` for a quick demo.
 

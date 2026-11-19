@@ -86,6 +86,12 @@ Keputusan desain lain:
 | ![Laporan](docs/screenshots/11-reports.png) **Laporan okupansi** | ![Voucher](docs/screenshots/08-voucher.png) **Voucher** |
 | ![Mobile](docs/screenshots/13-mobile-search.png) **Tampilan mobile** | ![English](docs/screenshots/02-home-en.png) **Mode Bahasa Inggris** |
 
+## ☁️ Coba langsung di browser (GitHub Codespaces)
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/romanussudimin-debu/Sistem-Pemesanan-Hotel?quickstart=1)
+
+Klik tombol di atas, lalu tunggu ±3–5 menit sampai terminal menampilkan **"✅ Siap!"**. Aplikasi terbuka otomatis di tab baru (atau buka tab **PORTS** → port **8000** → ikon 🌐). Tidak perlu memasang apa pun; database memakai SQLite dan sudah berisi data demo. Panduan lengkap: [docs/INSTALL.md](docs/INSTALL.md#0-cara-tercepat-github-codespaces-tanpa-instalasi).
+
 ## 🚀 Menjalankan secara lokal
 
 ```bash
@@ -212,6 +218,10 @@ Other design choices: a booking-status state machine with a single `transitionTo
 ### Tech stack
 
 PHP 8.3 · Laravel 13 · Breeze · MySQL 8 / MariaDB · Blade · Tailwind CSS · Alpine.js · Chart.js · Vite · PHPUnit (76 tests) · Pint · GitHub Actions.
+
+### Try it in your browser
+
+Click **Open in GitHub Codespaces** above and wait 3–5 minutes for **"✅ Siap!"** in the terminal. The app opens on port 8000 with SQLite and demo data, with nothing to install.
 
 ### Run locally
 
