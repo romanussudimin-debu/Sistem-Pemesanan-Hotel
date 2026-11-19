@@ -5,6 +5,8 @@
     "features": {
         "ghcr.io/devcontainers/features/node:1": { "version": "22" }
     },
+    // Matikan Xdebug agar tidak muncul peringatan "Could not connect to debugging client"
+    "containerEnv": { "XDEBUG_MODE": "off" },
     "forwardPorts": [8000],
     "portsAttributes": {
         "8000": { "label": "Nusa Stay Hotels", "onAutoForward": "openBrowser" }
