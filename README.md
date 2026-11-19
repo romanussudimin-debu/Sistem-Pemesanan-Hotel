@@ -5,7 +5,9 @@ Projek pemesanan hotel
 
 > 🚧 Sedang dikembangkan. README lengkap (fitur, tangkapan layar, akun demo, panduan instalasi) akan ditambahkan di tahap dokumentasi.
 
-## Menjalankan secara lokal (sementara)
+## Menjalankan secara lokal
+
+Panduan lengkap instalasi & deployment: [docs/INSTALL.md](docs/INSTALL.md).
 
 ```bash
 composer install && npm install && npm run build
@@ -27,6 +29,6 @@ php artisan queue:work      # pengiriman email notifikasi
 ## Pengujian
 
 ```bash
-php artisan test                                  # 68 test (SQLite in-memory)
+php artisan test                                  # 76 test (SQLite in-memory)
 php artisan hotel:concurrency-test --workers=20   # uji konkurensi anti-overbooking (butuh MySQL/MariaDB + pcntl)
 ```

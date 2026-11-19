@@ -1,3 +1,34 @@
+/* resources/css/app.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    /* Tombol */
+    .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50; }
+    .btn-primary { @apply btn bg-brand-700 text-white hover:bg-brand-800 focus:ring-brand-600; }
+    .btn-secondary { @apply btn border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 focus:ring-brand-600; }
+    .btn-danger { @apply btn bg-red-600 text-white hover:bg-red-700 focus:ring-red-500; }
+    .btn-sm { @apply px-3 py-1.5 text-xs; }
+
+    /* Form */
+    .input { @apply block w-full rounded-lg border-slate-300 text-sm shadow-sm focus:border-brand-600 focus:ring-brand-600; }
+    .label { @apply mb-1 block text-sm font-medium text-slate-700; }
+    .error { @apply mt-1 text-sm text-red-600; }
+
+    /* Kartu & tabel */
+    .card { @apply rounded-xl border border-slate-200 bg-white shadow-sm; }
+    .card-body { @apply p-5; }
+    .table { @apply min-w-full divide-y divide-slate-200 text-sm; }
+    .table th { @apply bg-slate-50 px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500; }
+    .table td { @apply whitespace-nowrap px-4 py-3 text-slate-700; }
+    .badge { @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold; }
+    .link { @apply font-medium text-brand-700 underline-offset-2 hover:underline; }
+}
+
+[x-cloak] { display: none !important; }
+
+@media print {
+    .no-print { display: none !important; }
+    body { background: #fff !important; }
+}

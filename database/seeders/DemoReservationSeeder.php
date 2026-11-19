@@ -116,9 +116,9 @@ class DemoReservationSeeder extends Seeder
         }
 
         return match (true) {
-            $r <= 5 => S::PendingPayment,
-            $r <= 10 => S::AwaitingVerification,
-            $r <= 18 => S::Cancelled,
+            $r <= 2 => S::PendingPayment,
+            $r <= 4 => S::AwaitingVerification,
+            $r <= 12 => S::Cancelled,
             default => S::Paid,
         };
     }
@@ -223,7 +223,9 @@ class DemoReservationSeeder extends Seeder
         } else {
             $created = $checkInAt->subDays(mt_rand(1, 45))->setTime(mt_rand(7, 22), mt_rand(0, 59));
             if ($created->greaterThan($now)) {
-                $created = $now->subHours(mt_rand(1, 48));
+                // Pemesanan jauh hari: sebar waktu pembuatan secara merata antara (check-in − 60 hari) dan sekarang
+                $window = max(60, (int) $checkInAt->subDays(60)->diffInMinutes($now));
+                $created = $now->subMinutes(mt_rand(60, $window));
             }
         }
 

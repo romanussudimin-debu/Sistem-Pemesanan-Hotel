@@ -73,7 +73,7 @@ class RoomController extends Controller
     public function destroy(Room $room): RedirectResponse
     {
         if ($room->hasBookingHistory()) { // FR-27: sarankan menonaktifkan
-            return back()->with('error', __('messages.cannot_delete_in_use', ['item' => __('Kamar').' '.$room->number]));
+            return back()->with('error', __('messages.cannot_delete_in_use', ['item' => __('Room').' '.$room->number]));
         }
 
         $room->delete();
