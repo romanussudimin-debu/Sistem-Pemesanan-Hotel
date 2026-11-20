@@ -1,6 +1,7 @@
 {{-- resources/views/home.blade.php — P-01 Beranda (W-01) --}}
 <x-app-layout>
-    <section class="relative overflow-hidden bg-gradient-to-br from-brand-800 via-brand-700 to-sky-600 text-white">
+    {{-- bg-brand-800 = warna cadangan bila browser tidak menggambar gradasi --}}
+    <section class="relative overflow-hidden bg-brand-800 bg-gradient-to-br from-brand-800 via-brand-700 to-sky-600 text-white">
         <svg class="absolute inset-x-0 bottom-0 h-24 w-full text-slate-50" viewBox="0 0 1440 96" preserveAspectRatio="none" fill="currentColor" aria-hidden="true"><path d="M0 64 C240 16 480 16 720 48 S1200 96 1440 40 V96 H0z"/></svg>
         <div class="relative mx-auto max-w-6xl px-4 pb-32 pt-16 sm:px-6">
             <p class="text-sm font-semibold uppercase tracking-widest text-brand-100">Jimbaran · Ubud · Seminyak</p>

@@ -1,7 +1,8 @@
 {{-- resources/views/components/photo.blade.php — foto dari storage, atau placeholder gradasi bila belum ada foto --}}
 @props(['path' => null, 'label' => '', 'seed' => 0])
 @php
-    $gradients = ['from-brand-600 to-sky-400', 'from-emerald-600 to-lime-400', 'from-amber-500 to-rose-400', 'from-indigo-600 to-cyan-400'];
+    // Warna padat pertama = cadangan bila browser tidak menggambar gradasi
+    $gradients = ['bg-brand-600 from-brand-600 to-sky-400', 'bg-emerald-600 from-emerald-600 to-lime-400', 'bg-amber-500 from-amber-500 to-rose-400', 'bg-indigo-600 from-indigo-600 to-cyan-400'];
     $gradient = $gradients[abs(crc32((string) $seed)) % count($gradients)];
 @endphp
 @if ($path)
